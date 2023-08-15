@@ -46,6 +46,9 @@ $type-size-8                : 0.625em;  // ~10px
 /*
    Colors
    ========================================================================== */
+   
+/* rick mod */
+$accent-color               : #24678d;  // rick modification
 
 $gray                       : #7a8288;
 $dark-gray                  : mix(#000, $gray, 40%);
@@ -90,7 +93,7 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : $info-color;
+$link-color                 : $accent-color;
 $link-color-hover           : mix(#000, $link-color, 25%);
 $link-color-visited         : mix(#fff, $link-color, 25%);
 $masthead-link-color        : $primary-color;
