@@ -271,7 +271,7 @@
   border-radius: $border-radius;
 
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
     color: $link-color-hover;
   }
 }
