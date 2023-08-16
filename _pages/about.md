@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 
-I’m research assistant and instructor professor at [School of Business and Economics, Universidad de los Andes, Chile](https://www.uandes.cl/sbe/). I hold a BSc. and a MSc. in economics at [University of Chile](https://econ.uchile.cl/). 
+I’m research assistant and instructor professor at [School of Business and Economics, Universidad de los Andes, Chile](https://www.uandes.cl/sbe/). I hold a Bachelor's and a Master's degree in Economics at [University of Chile](https://econ.uchile.cl/). 
 
 I'm interested in industrial organization, mechanism design and matching theory.
 
