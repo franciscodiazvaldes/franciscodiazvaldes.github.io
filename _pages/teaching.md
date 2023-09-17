@@ -14,7 +14,7 @@ author_profile: true
 </0.875em>
 
 ### University of Chile
-* <h3>Principles of Microeconomics</h3>
+* <font size=”1”>Principles of Microeconomics</font>
 
 
 ## Teaching Assistant
