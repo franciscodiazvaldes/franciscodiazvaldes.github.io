@@ -8,10 +8,10 @@ author_profile: true
 ## Lecturer
 
 ### Universidad de los Andes, Chile
-<0.875em>
+<font size=”2”>
 * Principles of Microeconomics
 * Linear Algebra
-</0.875em>
+</font>
 
 ### University of Chile
 * <font size=”1”>Principles of Microeconomics</font>
