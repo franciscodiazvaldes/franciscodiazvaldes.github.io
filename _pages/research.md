@@ -10,12 +10,13 @@ author_profile: true
 _Submitted._                  
    \[<a href="#/" onclick="visib('log0')">Abstract</a>\] \[[Slides (spanish)](https://www.dropbox.com/scl/fi/ihrv019ew4brwxp9w87f7/slides.pdf?rlkey=ks371gufthek62sia0w6dii7b&dl=0){:target="_blank" rel="noopener"}\] 
 
-   <div id="log0" style="display: none; text-align: justify; line-height: 1.2" ><small>
+<div id="log0" style="display: none; text-align: justify; line-height: 1.2" ><small>
 In classical school choice contexts there exists a centralized assignment procedure that is stable and strategy-proof: the Gale-Shapley student-optimal stable mechanism. We show that this property is not satisfied when externalities are incorporated into the model, even in scenarios in which students are primarily concerned about their own placement (weak externalities). Indeed, although weak externalities have no effects on stability, there are school choice contexts in which no stable and strategy-proof mechanism exists. Furthermore, we show that stability and strategy-proofness are compatible if and only if schools' priorities are Ergin-acyclic. This strong effect of weak externalities on incentives is related to the incompatibility between stability, strategy-proofness, and non-bossiness in classical school choice problems.
 </small><br><br/></div>
-    <details> <summary>Abstract</summary> 
 
-    <p style='text-align: justify;'> In classical school choice contexts there exists a centralized assignment procedure that is stable and strategy-proof: the Gale-Shapley student-optimal stable mechanism. We show that this property is not satisfied when externalities are incorporated into the model, even in scenarios in which students are primarily concerned about their own placement (weak externalities). Indeed, although weak externalities have no effects on stability, there are school choice contexts in which no stable and strategy-proof mechanism exists. Furthermore, we show that stability and strategy-proofness are compatible if and only if schools' priorities are Ergin-acyclic. This strong effect of weak externalities on incentives is related to the incompatibility between stability, strategy-proofness, and non-bossiness in classical school choice problems.  </p>
+ <details> <summary>Abstract</summary> 
+
+<p style='text-align: justify;'> In classical school choice contexts there exists a centralized assignment procedure that is stable and strategy-proof: the Gale-Shapley student-optimal stable mechanism. We show that this property is not satisfied when externalities are incorporated into the model, even in scenarios in which students are primarily concerned about their own placement (weak externalities). Indeed, although weak externalities have no effects on stability, there are school choice contexts in which no stable and strategy-proof mechanism exists. Furthermore, we show that stability and strategy-proofness are compatible if and only if schools' priorities are Ergin-acyclic. This strong effect of weak externalities on incentives is related to the incompatibility between stability, strategy-proofness, and non-bossiness in classical school choice problems.  </p>
     </details>
 
 
