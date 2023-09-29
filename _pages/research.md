@@ -8,7 +8,6 @@ author_profile: true
 
 * [The Strong Effects of Weak Externalities on School Choice](http://dx.doi.org/10.2139/ssrn.4276906){:target="_blank" rel="noopener"} (with [Juan Pablo Torres-Martínez](https://econ.uchile.cl/es/academico/jutorres){:target="_blank" rel="noopener"})  
 _Submitted._                  
-<br/>
 \[<a href="#/" onclick="visib('paper')">Abstract</a>\] \[[Slides (spanish)](https://www.dropbox.com/scl/fi/ihrv019ew4brwxp9w87f7/slides.pdf?rlkey=ks371gufthek62sia0w6dii7b&dl=0){:target="_blank" rel="noopener"}\] 
 
 <div id="paper" style="display: none; text-align: justify; line-height: 1.2" ><small>
