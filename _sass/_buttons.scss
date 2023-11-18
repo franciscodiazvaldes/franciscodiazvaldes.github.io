@@ -149,9 +149,10 @@
 
   &--small {
     font-size: $type-size-7;
+  }
 
-/* research page buttons */
-  &--research {
+  /* research page buttons */
+&--research {
   display: inline-block;
   margin-bottom: 0.25em;
   /* padding: 0.125em 0.25em; */
@@ -169,6 +170,6 @@
   &:hover {
     color: #fff;
     background-color: $link-color !important;
-    }
   }
+}
 }
