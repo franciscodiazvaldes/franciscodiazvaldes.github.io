@@ -13,5 +13,5 @@ I’m research assistant and instructor professor at [School of Business and Eco
 
 I'm interested in industrial organization, mechanism design and matching theory.
 
-My CV is available [here](https://www.dropbox.com/scl/fi/7uogpwjdbbqbpl3ufuq5f/CV.pdf?rlkey=81jyn8m08jh6w46z1ztu72osn&dl=0){:target="_blank" rel="noopener"}, and you can contact me at [eduque@uandes.cl](mailto:eduque@uandes.cl).
+My CV is available [here](https://www.dropbox.com/scl/fi/c89bpzlcob4ka27t3caf9/CV.pdf?rlkey=9oq2cnhsl1ih2i3g2wyvkrxfe&dl=0){:target="_blank" rel="noopener"}, and you can contact me at [eduque@uandes.cl](mailto:eduque@uandes.cl).
 
