@@ -13,5 +13,5 @@ I’m a research assistant and instructor professor at the [School of Business a
 
 I'm interested in industrial organization, mechanism design and market design.
 
-My CV is available [here](https://www.dropbox.com/scl/fi/c89bpzlcob4ka27t3caf9/CV.pdf?rlkey=9oq2cnhsl1ih2i3g2wyvkrxfe&dl=0){:target="_blank" rel="noopener"}, and you can contact me at [eduque@uandes.cl](mailto:eduque@uandes.cl).
+My CV is available [here](https://www.dropbox.com/scl/fi/xngsou5pdtliznh09lsqc/CV.pdf?rlkey=tne40au3tiyc8vuoy46gzm9aq&dl=0){:target="_blank" rel="noopener"}, and you can contact me at [eduque@uandes.cl](mailto:eduque@uandes.cl).
 
