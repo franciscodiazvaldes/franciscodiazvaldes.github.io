@@ -13,7 +13,7 @@ with [Juan Pablo Torres-Martínez](https://econ.uchile.cl/es/academico/jutorres)
   <span style="color:Black; text-align: justify; font-size: 11px; display: inline-block; width: 100%;"> <b>Presentations:</b> 23rd Annual SAET Conference, 2024; 2023 International Conference on Public Economic Theory, 2024; SECHI – Chilean Economic Society, 2023; Universidad de los Andes, Chile, 2023. </span> 
   
 
-## Working in Progress
+## Work in Progress
 
 * Consumers’ Activism Against Collusion in the Retail Market <br> 
 with [Jorge Alé-Chilet](https://sites.google.com/site/jorgealechilet/){:target="_blank" rel="noopener"}, [Nano Barahona](https://hbaraho.github.io/){:target="_blank" rel="noopener"}, [Andrés González-Lira](https://sites.google.com/view/andres-gonzalez-lira){:target="_blank" rel="noopener"} and [Sebastián Otero](https://sebotero.webflow.io/){:target="_blank" rel="noopener"}
