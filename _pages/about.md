@@ -16,5 +16,5 @@ I hold a Bachelor's and a Master's degree in Economics at the [University of Chi
 
 I'm interested in empirical and theoretical industrial organization and the intersection of mechanism design and market design.
 
-My CV is available [here](https://www.dropbox.com/scl/fi/xngsou5pdtliznh09lsqc/CV.pdf?rlkey=tne40au3tiyc8vuoy46gzm9aq&dl=0){:target="_blank" rel="noopener"}, and you can contact me at [eduque@uandes.cl](mailto:eduque@uandes.cl).
+My CV is available [here](https://www.dropbox.com/scl/fi/tyghsvenz6wl34d0e9a04/CV.pdf?rlkey=u9qpkbz39mdblwl09ukn7eqrt&dl=0){:target="_blank" rel="noopener"}, and you can contact me at [eduque@uandes.cl](mailto:eduque@uandes.cl).
 
