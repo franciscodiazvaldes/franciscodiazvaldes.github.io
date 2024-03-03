@@ -12,7 +12,7 @@ author_profile: true
 
 
 ### University of Chile
-* [Principles of Microeconomics](files/Teaching/UCH/Microeconomics/ENMIC15508.pdf){:target="_blank" rel="noopener"}
+* [Principles of Microeconomics](UCH/Microeconomics/)
 
 ## Teaching Assistant
 
