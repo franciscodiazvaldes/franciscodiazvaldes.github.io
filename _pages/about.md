@@ -13,5 +13,5 @@ I’m a Pre-Doctoral research fellow at the [School of Business and Economics, U
 
 I'm interested in empirical and theoretical industrial organization and the intersection of mechanism design and market design.
 
-My CV is available [here](https://www.dropbox.com/scl/fi/tyghsvenz6wl34d0e9a04/CV.pdf?rlkey=u9qpkbz39mdblwl09ukn7eqrt&dl=0){:target="_blank" rel="noopener"}, and you can contact me at [eduque@uandes.cl](mailto:eduque@uandes.cl).
+My CV is available [here](files/CV/CV.pdf){:target="_blank" rel="noopener"}, and you can contact me at [eduque@uandes.cl](mailto:eduque@uandes.cl).
 
