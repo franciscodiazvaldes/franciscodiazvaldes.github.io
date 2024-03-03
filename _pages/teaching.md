@@ -12,7 +12,7 @@ author_profile: true
 
 
 ### University of Chile
-* [Principles of Microeconomics](UCH/Microeconomics/)
+* [Principles of Microeconomics](../files/Teaching/UCH/Microeconomics/ENMIC15508.pdf){:target="_blank" rel="noopener"}
 
 ## Teaching Assistant
 
@@ -24,3 +24,6 @@ author_profile: true
 * Statistical Theory
 * Labour Economics
 * Quantitative Methods IV
+
+
+/Users/eduardoduque/Documents/GitHub/eduquerosas.github.io/files/Teaching/UCH/Microeconomics
