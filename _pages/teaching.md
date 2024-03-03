@@ -25,5 +25,3 @@ author_profile: true
 * Labour Economics
 * Quantitative Methods IV
 
-
-/Users/eduardoduque/Documents/GitHub/eduquerosas.github.io/files/Teaching/UCH/Microeconomics
