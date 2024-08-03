@@ -9,7 +9,7 @@ author_profile: true
 ### Universidad de los Andes, Chile
 * Principles of Microeconomics
 * Linear Algebra
-
+* Statistical Inference 
 
 ### University of Chile
 * [Principles of Microeconomics](../files/Teaching/UCH/Microeconomics/ENMIC15508.pdf){:target="_blank" rel="noopener"}
