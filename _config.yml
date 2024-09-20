@@ -84,11 +84,10 @@ author:
   avatar           : "profile_3.png"
   bio              : "Econ PhD student at UCLA"
   location         : "Los Angeles, US"
-  email            : "fdiazvaldes@g.ucla.edu" 
   employer         :
   pubmed           : 
   googlescholar    : 
-  email            :
+  email            : "fdiazvaldes@g.ucla.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
