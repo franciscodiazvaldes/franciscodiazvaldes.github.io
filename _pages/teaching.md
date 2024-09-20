@@ -7,28 +7,28 @@ author_profile: true
 ## Lecturer
 
 ### Universidad de los Andes, Chile
-#### Undergraduate 
+#### Bachelor of Arts in Economics 
 * Monetary Macroeconomics
 * Industrial Organization
-* Introduction to probability  
+* Probability Theory  
 
-#### Master in Economics
+#### Master of Arts in Economics
 * Microeconomic Theory I 
 
 
 ### University of Chile
-#### Master in Economics
+#### Master of Arts in Economics
 * MATLAB and Introduction to Dynamic Programming Workshop
 
 ## Teaching Assistant
 
 ### University of Chile
-#### Undergraduate
+#### Bachelor of Arts in Economics
 * Introduction to Statistics
 * Political Economy
 * Econometrics (Quantitative Methods II)
 
-#### Master in Economics
+#### Master of Arts in Economics
 * Macroeconomics I and II
 * Econometrics I and II
 
