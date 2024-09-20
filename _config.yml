@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "Santiago-Chile"
-title                    : "Francisco Díaz-Valdés"
+title                    : "Francisco Diaz-Valdes"
 title_separator          : "-"
-name                     : &name "Francisco Díaz-Valdés"
+name                     : &name "Francisco Diaz-Valdes"
 description              : &description "personal description"
 url                      : https://fdiazvaldes.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Francisco Díaz-Valdés"
+  name             : "Francisco Diaz-Valdes"
   avatar           : "profile_2.png"
   bio              : "Economics Ph.D. student at UCLA"
   location         : "Los Angeles, US"
