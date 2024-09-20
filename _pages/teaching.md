@@ -7,21 +7,29 @@ author_profile: true
 ## Lecturer
 
 ### Universidad de los Andes, Chile
-* Principles of Microeconomics
-* Linear Algebra
-* Statistical Inference 
+#### Undergraduate 
+* Monetary Macroeconomics
+* Industrial Organization
+* Introduction to probability  
+
+#### Master in Economics
+* Microeconomic Theory I 
+
 
 ### University of Chile
-* [Principles of Microeconomics](../files/Teaching/UCH/Microeconomics/ENMIC15508.pdf){:target="_blank" rel="noopener"}
+#### Master in Economics
+* [MatLab Workshop]
 
 ## Teaching Assistant
 
 ### University of Chile
-* Mathematical Methods II
+#### Undergraduate
 * Introduction to Statistics
 * Political Economy
-* Public Policy Workshop
-* Statistical Theory
-* Labour Economics
-* Quantitative Methods IV
+* Econometrics (Quantitative Methods II)
+
+#### Master in Economics
+* Macroeconomics I and II
+* Econometrics I and II
+
 
