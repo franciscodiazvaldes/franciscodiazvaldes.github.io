@@ -18,7 +18,7 @@ author_profile: true
 
 ### University of Chile
 #### Master in Economics
-* [MatLab Workshop]
+* MATLAB and Introduction to Dynamic Programming Workshop
 
 ## Teaching Assistant
 
