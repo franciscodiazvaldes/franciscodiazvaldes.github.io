@@ -29,7 +29,9 @@ author_profile: true
 * Econometrics (Quantitative Methods II)
 
 #### Master of Arts in Economics
-* Macroeconomics I and II
-* Econometrics I and II
+* Macroeconomics I (Professors Rómulo Chumacero and Álvaro García-Marín)
+* Macroeconomics II (Professor Eduardo Engel)
+* Econometrics I (Professor Valentina Paredes)
+* Econometrics II (Professor Rómulo Chumacero)
 
 
