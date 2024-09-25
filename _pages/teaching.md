@@ -5,7 +5,10 @@ author_profile: true
 ---
 
 ## Lecturer
-
+### University of Chile
+#### Master of Arts in Economics
+* Workshop: MATLAB and Introduction to Dynamic Programming
+  
 ### Universidad de los Andes, Chile
 #### Bachelor of Arts in Economics 
 * Monetary Macroeconomics
@@ -14,11 +17,6 @@ author_profile: true
 
 #### Master of Arts in Economics
 * Microeconomic Theory I 
-
-
-### University of Chile
-#### Master of Arts in Economics
-* MATLAB and Introduction to Dynamic Programming Workshop
 
 ## Teaching Assistant
 
@@ -29,9 +27,9 @@ author_profile: true
 * Econometrics (Quantitative Methods II)
 
 #### Master of Arts in Economics
-* Macroeconomics I (Professors Rómulo Chumacero and Álvaro García-Marín)
-* Macroeconomics II (Professor Eduardo Engel)
-* Econometrics I (Professor Valentina Paredes)
-* Econometrics II (Professor Rómulo Chumacero)
+* Macroeconomics I (Prof. Rómulo Chumacero and Álvaro García-Marín)
+* Macroeconomics II (Prof. Eduardo Engel)
+* Econometrics I (Prof. Valentina Paredes)
+* Econometrics II (Prof. Rómulo Chumacero)
 
 
