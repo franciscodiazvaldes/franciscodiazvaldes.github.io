@@ -15,4 +15,4 @@ Previously, I served as a Pre-Doctoral Research Fellow at the [School of Busines
 
 I’m interested in Macroeconomics with heterogeneous agents, Computational Economics, and Social Networks.
 
-My CV is available [here](files/CV/CV.pdf){:target="_blank" rel="noopener"}, and you can contact me at [fdiazvaldes [at] ucla [dot] edu](mailto:fdiazvaldes@g.ucla.edu)
+My CV is available [here](files/CV/CV.pdf){:target="_blank" rel="noopener"}, and you can contact me at [fdiazvaldes[at]ucla[dot]edu](mailto:fdiazvaldes@g.ucla.edu)
