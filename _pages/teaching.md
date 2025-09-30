@@ -3,6 +3,10 @@ title: "Teaching"
 permalink: /teaching/
 author_profile: true
 ---
+## UCLA
+### ECON 103 (Fall 2025)
+
+<!--
 ## Lecturer
 ### University of Chile
 #### Master of Arts in Economics
@@ -30,5 +34,5 @@ author_profile: true
 * Macroeconomics II (Prof. Eduardo Engel)
 * Econometrics I (Prof. Valentina Paredes)
 * Econometrics II (Prof. Rómulo Chumacero)
-
+-->
 
