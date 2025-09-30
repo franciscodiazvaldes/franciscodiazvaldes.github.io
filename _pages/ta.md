@@ -8,3 +8,4 @@ author_profile: true
 ### ECON 103 (Fall 2025)
 
 #### Week 1
+*
