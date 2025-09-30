@@ -17,7 +17,7 @@ author_profile: true
 #### Master of Arts in Economics
 * Microeconomic Theory I 
 
-## Previous Teaching Assistant
+## Teaching Assistant
 
 ### University of Chile
 #### Bachelor of Arts in Economics
