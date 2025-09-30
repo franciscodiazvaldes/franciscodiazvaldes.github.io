@@ -5,6 +5,7 @@ author_profile: true
 ---
 ## UCLA
 ### ECON 103 (Fall 2025)
+#### Week 1 (R and RStudio)
 
 <!--
 ## Lecturer
