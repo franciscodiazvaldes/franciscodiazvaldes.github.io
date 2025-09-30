@@ -3,9 +3,10 @@ title: "Teaching"
 permalink: /teaching/
 author_profile: true
 ---
-## TA
-### UCLA
-
+## TA at UCLA
+### ECON 103
+#### Week 1
+* Week 1
 
 ## Lecturer
 ### University of Chile
@@ -21,7 +22,7 @@ author_profile: true
 #### Master of Arts in Economics
 * Microeconomic Theory I 
 
-## Teaching Assistant
+## Previous Teaching Assistant
 
 ### University of Chile
 #### Bachelor of Arts in Economics
