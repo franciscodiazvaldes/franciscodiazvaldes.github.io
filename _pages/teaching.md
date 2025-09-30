@@ -3,11 +3,6 @@ title: "Teaching"
 permalink: /teaching/
 author_profile: true
 ---
-## TA at UCLA
-### ECON 103
-#### Week 1
-* Week 1
-
 ## Lecturer
 ### University of Chile
 #### Master of Arts in Economics
