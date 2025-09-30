@@ -6,8 +6,8 @@ author_profile: true
 ## UCLA
 ### ECON 103 (Fall 2025)
 #### Week 1 (R and RStudio)
-* [Notes](files/UCLA/Econ103/Week1/Week_1_2025.pdf)
-* [Code example](files/UCLA/Econ103/Week1/Week_1.R)
+* [Notes](/files/UCLA/Econ103/Week1/Week_1_2025.pdf)
+* [Code example](/files/UCLA/Econ103/Week1/Week_1.R)
 
 <!--
 ## Lecturer
