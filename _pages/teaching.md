@@ -3,6 +3,9 @@ title: "Teaching"
 permalink: /teaching/
 author_profile: true
 ---
+## TA
+### UCLA
+
 
 ## Lecturer
 ### University of Chile
