@@ -5,6 +5,11 @@ author_profile: true
 ---
 ## UCLA
 ### ECON 103 (Fall 2025)
+* Lab 1B: Tuesday 2:00pm-2:50pm, Public Affairs 2400A
+* Lab 1F: Wednesday 1:00pm-1:50pm, Public Affairs 2400A
+  
+* **Office Hours**: To be defined
+  
 #### Week 1 (R and RStudio)
 * [Notes](/files/UCLA/Econ103/Week_1/Week_1_2025.pdf)
 * [Code examples](/files/UCLA/Econ103/Week_1/Week_1.R)
@@ -13,6 +18,15 @@ author_profile: true
 #### Week 2 (OLS Basics)
 * [Notes](/files/UCLA/Econ103/Week_2/Week_2_103.pdf)
 * [Code examples](/files/UCLA/Econ103/Week_2/week2_code.Rmd)
+
+
+
+
+
+
+
+
+
 
 <!--
 ## Lecturer
