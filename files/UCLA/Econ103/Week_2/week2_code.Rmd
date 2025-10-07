@@ -1,0 +1,479 @@
+---
+title: "Additional Week 2 Discussion Problems"
+author: Francisco Díaz-Valdés, Ryan Longmuir \& Steven Runzhong Xu
+output:
+  pdf_document: default
+date: "2024-10-10"
+toc: TRUE
+---
+
+```{r setup, include=FALSE}
+
+# Knitr Options 
+knitr::opts_chunk$set(
+  echo = TRUE, results = "hold",
+  fig.align = "center", out.width = "250px", 
+  warning = FALSE, error = FALSE, fig.pos="H"
+)
+
+# Library 
+library(tidyverse) # Your data Swiss Army Knife 
+library(kableExtra) # Make my table pretty 
+library(modelsummary) # Make my regression table pretty 
+library(POE5Rdata) # Class data 
+
+```
+
+# Question 2.3
+
+## Question 2.3 Part A and B
+
+\textit{\textcolor{blue}{(a) Using a ruler, draw a line that fits through the data. Measure the slope and intercept of the line you have drawn (b) Use formulas (2.7) and (2.8) to compute, using only a hand calculator, the least squares estimates of the slope and the intercept. Plot this line on your graph}}
+
+```{r Q23PAB}
+
+
+# Make sample data 
+x <- c(1,2,3,4,5,6)
+y <- c(6,4,11,9,13,17)
+xbar <- mean(x)
+ybar <- mean(y)
+df <- data.frame("x" = x, "y" = y)
+
+# Calculate beta2: Way #1
+beta2_w1 <- df %>% 
+  mutate( 
+    xbar = mean(x),
+    ybar = mean(y),
+    num = (x - xbar)*(y - ybar),
+    den = (x - xbar)**2
+  ) %>% 
+  summarise(
+    beta2 = sum(num)/sum(den)
+  ) %>% 
+  pull(beta2)
+
+# Calculate beta2: Way #2
+beta2_w2 <- sum((x - xbar)*(y - ybar))/sum((x - xbar)**2)
+
+# Calculate beta2: Way #3 
+model1 <- lm(y ~ x, data = df)
+model1_summary <- summary(model1)
+beta2_w3 <- model1_summary$coefficients[2,1]
+
+# Calculate beta1: 
+beta1 = ybar - beta2_w1*xbar 
+
+# Plot: Way 1 
+ggplot(df, aes(x = x, y = y)) + 
+  geom_point(color = "dodgerblue3") + 
+  geom_abline(
+  intercept = beta1,
+  slope = beta2_w1,
+  color = "firebrick3"
+)
+
+# Plot: Way 2 
+plot(x = x, y = y)
+abline(a = beta1, b =beta2_w1)
+
+```
+
+## Question 2.3 Part C
+
+\textit{\textcolor{blue}{(c) Obtain the sample means $\bar{y} = \sum y_i/N$ and $\bar{x} = \sum x_i/N$. Obtain the predicted value of y for x = x and plot it on your graph. What do you observe about this predicted value?}}
+
+$\beta_1$ and $\beta_2$ minimize the sum of squared errors. As consequence is that on average the model accurately predicts y given x. I could
+
+```{r Q23PC}
+
+yhat <- beta1 + xbar*beta2_w1
+yhat == ybar
+
+```
+
+## Question 2.3 Part D, E, and F
+
+\textit{\textcolor{blue}{(d) Using the least squares estimates from (b), compute the least squares residuals $\hat{e_i}$ (e) Find their sum, $\sum \hat{e_i}$, and (f) Calculate $\sum x_i\hat{e_i}$}}
+
+```{r Q23PDEF}
+
+df2 <- df %>% 
+  mutate(
+    yhat = (beta1 + beta2_w1 * x),
+    e = y - yhat,
+    x_times_e = x * e
+  )
+sum(df2$e) # Answer to part D 
+sum(df2$e**2) # Answer to part D
+sum(df2$x_times_e) # Anser to part F
+
+
+```
+
+\newpage
+
+# Question 2.18
+
+\textit{\textcolor{blue}{The data file `collegetown` contains observations on 500 single-family houses sold in Baton Rouge, Louisiana, during 2009–2013. The data include sale price (in thousands of dollars), PRICE, and total interior area of the house in hundreds of square feet, SQFT}}
+
+## Question 2.18 Part A
+
+\textit{\textcolor{blue}{Create histograms for PRICE and ln(PRICE). Are the distributions skewed or symmetrical?}}
+
+```{r Q218A}
+
+data(collegetown)
+df <- collegetown %>% 
+  mutate(ln_price = log(price))
+
+# Price histrograms way #1 
+hist(df$price)
+hist(df$ln_price)
+
+# Price historgrams way #2
+ggplot(df, aes(x = price)) +
+  geom_histogram()
+ggplot(df, aes(x = ln_price)) +
+  geom_histogram()
+  
+
+```
+
+\textit{\textcolor{blue}{Estimate the log-linear regression model $\ln(PRICE)=\gamma_1 + \gamma_2 * SQFT + \varepsilon$ Interpret the OLS estimates, $\gamma_1$ and $\gamma_1$. Graph the fitted PRICE, $\hat{PRICE} = exp(\gamma_1 + \gamma_1 * 2SQFT)$, against SQFT, and sketch the tangent line to the curve for a house with 2000 square feet of living area. What is the slope of the tangent line?}}
+
+The estimated slope can be interpreted as telling us that a 100 square foot increase in house 
+size increases predicted price by approximately 3.6%, holding all else fixed. The estimated 
+intercept tells us little as is. But exp 80.953 (4.3939) = suggests that the predicted price of a zero square foot house is $80,953. This estimate has little meaning because in the sample there are no houses with zero square feet of living area.
+
+\begin{align*}
+ \ln(PRICE_i) &= \gamma_1 + \gamma_2 * SQFT_i\\
+PRICE_i &= \exp(\gamma_1 + \gamma_2 * SQFT_i) \\
+ \frac{\partial PRICE_i}{\partial SQFT_i} &= \frac{\exp(\gamma_1 + \gamma_2 * SQFT_i)}{\partial SQFT_i}\\
+\frac{\partial PRICE_i}{\partial SQFT_i} &= \exp(\gamma_1 + \gamma_2 * SQFT_i) * \gamma_2 
+\end{align*}
+
+
+
+```{r Q218PB}
+
+# Estimate model 
+lm1 <- lm(ln_price ~ sqft, data = df)
+lm2 <- lm(price ~ sqft, data = df)
+summary(lm1)
+summary(lm2)
+
+# Save coefficients 
+gamma1 <- summary(lm1)$coefficients[1,1]
+gamma2 <- summary(lm1)$coefficients[2,1]
+beta1 <- summary(lm2)$coefficients[1,1]
+beta2 <- summary(lm2)$coefficients[2,1]
+
+# Produce predicted values 
+df <- df %>% 
+  mutate(
+    ln_price_hat = gamma1 + gamma2 * sqft,
+    price_hat = exp(ln_price_hat)
+  )
+
+# Calculate the slope of the tangent line for a house with 2000 sqft
+# Convert 2000 sqft to hundreds (20)
+sqft_value <- 20
+predicted_value <- exp(gamma1 + gamma2 * 20)
+tangent_slope <- gamma2 * predicted_value
+tangent_intercept <- predicted_value - 20 * tangent_slope
+
+# Plot the fitted PRICE vs SQFT
+ggplot(df, aes(x = sqft)) +
+  geom_point(aes(y = price), color = 'firebrick') +  # Scatter plot of original data
+  geom_line(aes(y = price_hat), color = 'dodgerblue', size = 1.5) +  # Fitted line
+  geom_abline(intercept =  tangent_intercept,
+  slope = tangent_slope, color = "darkgreen", size = 1.5) + 
+  labs(
+    title = "Fitted PRICE vs SQFT with Original Data", 
+    x = "SQFT (hundreds)", 
+    y = "Price (in thousands)"
+  ) 
+
+
+
+```
+
+## Question 1.8 Part C 
+
+\textit{\textcolor{blue}{(c) Compute the least squares residuals from the model in (b) and plot them against SQFT. Do any of our assumptions appear violated?}}
+
+The residual plot is shown below. The residual plot is a little hard to interpret because there are few very large homes in the sample. The variation in the residuals appears to diminish 
+as house size increases, but that interpretation should not be carried too far.
+
+```{r Q18PC}
+
+df <- df %>% 
+  mutate(
+    ln_error = ln_price - ln_price_hat,
+    error = exp(ln_error)
+  )
+
+# Plot the fitted PRICE vs SQFT
+ggplot(df, aes(x = sqft)) +
+  geom_point(aes(y = error), color = 'firebrick') 
+
+
+```
+
+## Question 1.8 Part D 
+
+\textit{\textcolor{blue}{Calculate summary statistics for PRICE and SQFT for homes close to Louisiana State University (CLOSE = 1) and for homes not close to the university (CLOSE = 0). What differences and/or similarities do you observe?}}
+
+The summary statistics show that there are 189 houses close to LSU and 311 houses not  close to LSU in the sample. The mean house price is $10,000 larger for homes close to LSU, and the homes close to LSU are slightly smaller, by about 100 square feet. The range of the data is smaller for the homes close to LSU, and the standard deviation for those homes is half the standard deviation of homes not close to LSU.
+
+
+```{r Q18PD}
+
+# Make summary table 
+summary_close <- df |> 
+  group_by(close) |> 
+  summarise(
+    N = n(),
+    sqft_mean = mean(sqft), 
+    sqft_min  = min(sqft),
+    sqft_max  = max(sqft),
+    sqft_sd   = sd(sqft),
+    price_mean = mean(price), 
+    price_min  = min(price),
+    price_max  = max(price),
+    price_sd   = sd(price),
+  )
+
+# Make it pretty 
+pretty_summary <- summary_close |>
+  mutate(across(everything(), round, 2)) |> 
+  mutate(across(everything(), as.character)) |> 
+  select(-close) |> 
+  rename(
+    "N Obs" = N,
+    "Sqft Mean"  = sqft_mean, 
+    "Sqft SD"    = sqft_sd, 
+    "Sqft Min"   = sqft_min,
+    "Sqft Max"   = sqft_max,
+    "Price Mean" = price_mean, 
+    "Price SD"   = price_sd, 
+    "Price Min"  = price_min,
+    "Price Max"  = price_max
+  ) |> 
+  t() |> 
+  as.data.frame()
+
+# Make it pretty  
+pretty_summary |> 
+  kable(col.names = c("Close = 0", "Close = 1"), booktabs = T) |> 
+  kable_styling(latex_options = c("HOLD_position", "striped"))
+
+```
+
+## Question 1.8 Part E 
+
+\textit{\textcolor{blue}{Estimate the log-linear regression model $ln(PRICE)= \gamma_1 + \gamma_2SQFT + e$ for homes close to Louisiana State University (CLOSE = 1) and for homes not close to the university (CLOSE = 0). Interpret the estimated coefficient of SQFT in each sample’s regression.}}
+
+For homes close to LSU we estimate that an additional 100 square feet of living space will increase predicted price by about 2.69% and for homes not close to LSU about 4.02%
+
+
+```{r Q18PE}
+
+# Make subsets
+close0_subset <- df |> filter(close == 0)
+close1_subset <- df |> filter(close == 1)
+
+# Estimate models 
+close0_model <- lm(ln_price ~ sqft, data = close0_subset)
+close1_model <- lm(ln_price ~ sqft, data = close1_subset)
+
+# Model Summaries 
+summary(close0_model)$coefficients
+summary(close1_model)$coefficients
+
+```
+
+## Question 1.8 Part F 
+
+\textit{\textcolor{blue}{Are the regression results in part (b) valid if the differences you observe in part (e) are substantial? Think in particular about whether SR1 is satisfied.}}
+
+Assumption SR1 implies that the data are drawn from the same population. So the question  is, are homes close to LSU and homes not close to LSU in the same population? Based on our limited sample, and using just a simple, one variable, regression model it is difficult to  be very specific. The estimated regression coefficients for the sub-samples are different, the 
+question we will be able to address later is “Are they significantly different.” Just looking at the magnitudes is not a statistical test
+
+\newpage 
+
+# Question 2.28
+
+\textit{\textcolor{blue}{How much does education affect wage rates? The data file `cps5\_small` contains 1200 observations on hourly wage rates, education, and other variables from the 2013 Current Population Survey (CPS).}}
+
+## Question 2.28 Part A 
+
+\textit{\textcolor{blue}{Obtain the summary statistics and histograms for the variables WAGE and EDUC. Discuss the data characteristics.}}
+
+```{r Q227PA1}
+
+data(cps5_small)
+
+# Make a summary table 
+wage_summary <- cps5_small |> 
+  summarise(
+    N = n(),
+    mean = mean(wage), 
+    min  = min(wage),
+    max  = max(wage),
+    sd   = sd(wage)
+  )
+
+# Make it pretty  
+wage_summary |> 
+  kable(booktabs = T) |> 
+  kable_styling(latex_options = c("HOLD_position", "striped"))
+
+# Generate hisogram 
+ggplot(cps5_small, aes(x = wage)) +
+  geom_histogram()
+
+```
+
+307 people had 12 years of education, implying that they finished their education at the end of high school. There are a few observations at less than 12, representing those who did not complete high school. The spike at 16 years describes those 304 who completed a 4-year college degree, while those at 18 and 21 years represent a master's degree, and further education such as a PhD, respectively. Spikes at 13 and 14 years are people who had one or two years at college.
+
+```{r Q227PA2}
+
+# Make a summary table 
+educ_summary <- cps5_small |> 
+  summarise(
+    N = n(),
+    mean = mean(educ), 
+    min  = min(educ),
+    max  = max(educ),
+    sd   = sd(educ)
+  )
+
+# Make it pretty  
+wage_summary |> 
+  kable(booktabs = T) |> 
+  kable_styling(latex_options = c("HOLD_position", "striped"))
+
+# Generate hisogram 
+ggplot(cps5_small, aes(x = educ)) +
+  geom_histogram()
+
+```
+
+## Question 2.28 Part B 
+
+\textit{\textcolor{blue}{Estimate the linear regression $WAGE = \beta_1 + \beta_2 EDUC + \varepsilon$ and discuss the results.}}
+
+The coefficient 2.3968 represents the estimated increase in the expected hourly wage rate for an extra year of education.  The coefficient -10.4 represents the estimated wage rate of a worker with no years of education. It should not be considered meaningful as it is not possible to have a negative hourly wage rate
+
+
+```{r Q228PB}
+
+wage_model <- lm(wage ~ educ, data = cps5_small)
+summary(wage_model)
+
+```
+
+## Question 2.28 Part C 
+
+\textit{\textcolor{blue}{Calculate the least squares residuals and plot them against EDUC. Are any patterns evident? If assumptions SR1–SR5 hold, should any patterns be evident in the least squares residuals?}}
+
+The residuals are plotted against education in Figure 2.28(c).  There is a pattern evident; as EDUC increases, the magnitude of the residuals also increases, suggesting that the error variance is larger for larger values of EDUC—a violation of assumption SR3. If the assumptions SR1-SR5 hold, there should not be any patterns evident in the residuals.
+
+
+```{r Q228PC}
+
+beta1 <- summary(wage_model)$coefficients[1,1]
+beta2 <- summary(wage_model)$coefficients[2,1]
+
+df <- cps5_small |> 
+  mutate(
+    wage_hat = beta1 + beta2*educ,
+    error = wage - wage_hat
+  )
+
+ggplot(df, aes(x = educ, y = error)) + 
+  geom_point()
+
+```
+
+## Question 2.28 Part D 
+
+\textit{\textcolor{blue}{Estimate separate regressions for males, females, blacks, and whites. Compare the results.}}
+
+The white equation is obtained from those workers who are neither black nor Asian. From the results, we can see that an extra year of education increases the expected wage rate of a white worker more than it does for a black worker. And an extra year of education increases the expected wage rate of a female worker more than it does for a male worker.
+
+```{r Q228PD}
+
+# Produce subsets 
+male_subset <- cps5_small |> filter(female == 0)
+female_subset <- cps5_small |> filter(female == 1)
+black_subset <- cps5_small |> filter(black == 1)
+white_subset <- cps5_small |> filter(black == 0)
+
+# Estimate modesl 
+male_wage_model <- lm(wage ~ educ, data = male_subset)
+female_wage_model <- lm(wage ~ educ, data = female_subset)
+black_wage_model <- lm(wage ~ educ, data = female_subset)
+white_wage_model <- lm(wage ~ educ, data = white_subset)
+
+# Print coefficients
+summary(male_wage_model)$coefficients
+summary(female_wage_model)$coefficients
+summary(black_wage_model)$coefficients
+summary(white_wage_model)$coefficients
+
+```
+
+## Question 2.28 Part E 
+
+\textit{\textcolor{blue}{Estimate the quadratic regression $WAGE = \alpha_1 + \alpha_2 EDUC^2 + \varepsilon$ and discuss the results. Estimate the marginal effect of another year of education on wage for a person with 12 years of education and for a person with 16 years of education. Compare these values to the estimated marginal effect of education from the linear regression in part (b).}}
+
+The marginal effect is EDUC. For a person with 12 years of education, the estimated marginal effect of an additional year of education on expected wage is $2(0.0891)(12) = 2.1392$. That is, an additional year of education for a person with 12 years of education is expected to increase wage by $\$2.14$. For a person with 16 years of education, the marginal effect of an additional year of education is $2(0.0891)(16) = 2.8523$. An additional year of education for a person with 16 years of education is expected to increase wage by $\$2.85$. The linear model in (b) suggested that an additional year of education is expected to increase wage by $\$2.40$ regardless of the number of years of education attained. That is, the rate of change was constant. The quadratic model suggests that the effect of an additional year of education on wage increases with the level of education already attained.
+
+
+```{r Q228PE}
+
+df <- cps5_small |> 
+  mutate(
+    educ_sq = educ**2
+  )
+
+wage_model <- lm(wage ~ educ_sq, data = df)
+summary(wage_model)
+
+```
+
+## Question 2.28 Part F
+
+\textit{\textcolor{blue}{Plot the fitted linear model from part (b) and the fitted values from the quadratic model from part (e) in the same graph with the data on WAGE and EDUC. Which model appears to fit the data better?}}
+
+The quadratic model appears to fit the data slightly better than the linear equation, especially at lower levels of education.
+
+```{r}
+
+# Simple model
+simple_model <- lm(wage ~ educ, data = df)
+b1_simple_model <- summary(simple_model)$coefficients[1,1]
+b2_simple_model <- summary(simple_model)$coefficients[2,1]
+
+# Quad model 
+quad_model <- lm(wage ~ educ_sq, data = df)
+b1_quad_model <- summary(quad_model)$coefficients[1,1]
+b2_quad_model <- summary(quad_model)$coefficients[2,1]
+
+ggplot(df, aes(x = educ, y = wage)) + 
+  geom_point() + 
+  geom_abline(
+    intercept = b1_simple_model,
+    slope = b2_simple_model, color = "red"
+  ) + 
+  geom_abline(
+    intercept = b1_quad_model, 
+    slope = b2_quad_model, color = "blue"
+  )
+
+
+```
+
