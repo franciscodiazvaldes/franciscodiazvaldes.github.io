@@ -17,7 +17,7 @@ author_profile: true
 
 #### Week 2 (OLS Basics)
 * [Notes](/files/UCLA/Econ103/Week_2/Week_2_103.pdf)
-* [Code examples](/files/UCLA/Econ103/Week_2/week2_code)
+* [Download .Rmd code](https://raw.githubusercontent.com/franciscodiazvaldes/franciscodiazvaldes.github.io/master/files/UCLA/Econ103/Week_2/week2_code.Rmd)
 
 
 
