@@ -27,7 +27,6 @@ author_profile: true
 
 
 
-
 <!--
 ## Lecturer
 ### University of Chile
