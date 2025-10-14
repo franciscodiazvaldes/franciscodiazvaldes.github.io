@@ -1,0 +1,304 @@
+---
+title: "Week 3 Discussion Problems"
+author: "Ryan Longmuir"
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    extra_dependencies:
+    - tcolorbox
+    - amsmath
+toc: true
+---
+
+```{r setup, include=FALSE}
+
+# Knitr Options 
+knitr::opts_chunk$set(
+  echo = TRUE, results = "hold",
+  fig.align = "center", out.width = "250px", 
+  warning = FALSE, error = FALSE, fig.pos="H"
+)
+
+# Library 
+library(tidyverse) # Your data Swiss Army Knife 
+library(kableExtra) # Make my table pretty 
+library(modelsummary) # Make my regression table pretty 
+library(POE5Rdata) # Class data 
+  
+```
+
+# Question 3.17 
+
+```{=Latex}
+
+\newtcolorbox{greybox}{colback=gray!30, boxrule=0pt,arc=0pt, 
+  boxsep=5pt,left=5pt,right=5pt,leftrule=2pt}
+
+\begin{greybox}
+  Consider the regression model $WAGE = \beta1 + \beta_2 * EDUC + \varepsilon$. Where WAGE is hourly wage rate in US 2013 dollars. EDUC is years of schooling. The model is estimated twice, once using individuals from an urban area, and again for individuals in a rural area.
+  \begin{align*}
+ \text { Urban } \hspace*{4mm} & \widehat{W A G E}=-10.76+2.46 E D U C, \quad N=986 \\
+  & \hspace*{4mm} (\mathrm{se}) \hspace*{10mm} (2.27) \hspace*{10mm} (0.16) \\
+  \text { Rural }  \hspace*{4mm}  &\widehat{W A G E}=-4.88+1.80 E D U C, \quad N=214 \\
+  &\hspace*{4mm} (\mathrm{se})  \hspace*{10mm} (3.29) \hspace*{10mm} (0.24)
+  \end{align*}
+\end{greybox}
+```
+
+## Question 3.17 Part A 
+
+```{=Latex}
+\begin{greybox}
+    Using the urban regression, test the null hypothesis that the regression slope equals 1.80 against the alternative that it is greater than 1.80. Use the $\alpha = 0.05$ level of significance. Show all steps, including a graph of the critical region and state your conclusion.
+\end{greybox}
+```
+
+$H_0: \beta_2=1.80$, $H_A: \beta_2>1.80$, the test statistic is 
+
+$$ t=\frac{b_2-1.80}{\operatorname{se}\left(b_2\right)} \sim t_{(N-2=986-2=984)}$$ 
+if the null hypothesis is true. Using the $5 \%$ level of significance and statistical Table 2, the rejection region is values of the test statistic greater than or equal to 1.645.
+
+```{r Q317PA}
+
+df <- 984 # Set degrees of freedom
+quantile_0_95 <- qt(0.95, df) # Calculate the 0.95th quantile of t-distribution
+x_values <- seq(-4, 4, length.out = 1000) # Create a sequence of x values for the t-distribution
+
+# Create a data frame for plotting
+data <- data.frame(
+  x = x_values,
+  y = dt(x_values, df)  # Density of t-distribution
+)
+
+# Create the plot
+ggplot(data, aes(x = x, y = y)) +
+  geom_line(color = "blue", size = 1) +  
+  geom_vline(xintercept = quantile_0_95, color = "red", linetype = "dashed", size = 1) + 
+  geom_text(aes(x = 2.5, y = .3, label = "0.95th Quantile"),
+            vjust = -0.5, color = "red") + 
+  labs(title = "Student's t-Distribution (df = 984)",
+       x = "t-value",
+       y = "Density") 
+
+
+```
+
+The calculated value of the $t$-statistic is $t= \frac{\hat{\beta_2} - \beta_2}{\mathrm{se}(b2)} =  \frac{2.46-1.80}{0.16}=4.125$, which falls in the rejection region, so we reject the null hypothesis and accept the alternative, that in an urban area an extra year of education increases wages by more than $\$ 1.80$ an hour, which is the estimated value of an additional year of education in the rural equation.
+
+## Question 3.17 Part B
+
+```{=Latex}
+\begin{greybox}
+  Using the rural regression, compute a $95 \%$ interval estimate for expected $W A G E$ if $EDUC=16$. The required standard error is 0.833 . Show how it is calculated using the fact that the estimated covariance between the intercept and slope coefficients is -0.761 .
+\end{greybox}
+```
+
+$E( WAGE \mid E D U C=16)=\beta_1+\beta_2 E D U C=\beta_1+\beta_2 16$. The estimated expected wage for the rural area is $E(W A G E \mid E D U C=16)=\beta_1+\beta_2 E D U C=-4.88+1.80(16)=23.92$. Using statistical Table $2, \quad$ a $95 \%$ interval estimate is $\left(b_1+16 b_2\right) \pm 1.96 \mathrm{se}\left(b_1+16 b_2\right)=23.92 \pm 1.96(1.103)=[22.287,25.553]$. We estimate with $95 \%$ confidence that the average wage in the rural area for someone with 16 years of education is between $\$ 22.29$ and $\$ 25.55$. The standard error calculation is based on the estimated variance,
+
+\begin{align*}
+  \mathrm{Var}(b_1 + 16b_2)  &=  \mathrm{Var}(b_1) + 16^2\mathrm{Var}(b_2) + 2 \times 16 \times  \mathrm{Cov}(b_1, b_2) \\ 
+      &= [ \mathrm{se}(b_1)]^2 + 16^2 [ \mathrm{se}(b_2)]^2 + 2 \times 16 \times  \mathrm{Cov}(b_1, b_2) \\ 
+      &= [3.29]^2 + 16^2[.24]^2 + 2 \times 16 \times [- 0.761] \\ 
+      &= 1.218
+\end{align*}
+
+
+## Question 3.17 Part C 
+
+```{=Latex}
+\begin{greybox}
+  Using the urban regression, compute a $95 \%$ interval estimate for expected $W A G E$ if $EDUC=16$. The estimated covariance between the intercept and slope coefficients is -0.345 . Is the interval estimate for the urban regression wider or narrower than that for the rural regression in (b). Do you find this plausible? Explain.
+\end{greybox}
+```
+
+The estimated expected wage for the urban area is $E(W A G E \mid E D U C=16)=\beta_1+\beta_2 E D U C=-10.76+2.46(16)=28.6 . \quad$ A $95 \% \quad$ interval sstimate is $\left(b_1+16 b_2\right) \pm 1.96 \mathrm{se}\left(b_1+16 b_2\right)=28.6 \pm 1.96(0.816)=[27.00,30.20]$. The nterval for the urban regression is narrower. This is because of the larger sample size, which increases the precision of estimation.
+
+
+## Question 3.17 Part D 
+
+```{=Latex}
+\begin{greybox}
+  Using the rural regression, test the hypothesis that the intercept parameter $\beta_1$ equals four, or more, against the alternative that it is less than four, at the $1 \%$ level of significance.
+\end{greybox}
+```
+
+$H_0: \beta_1 \geq 4.0, H_1: \beta_1<4.0, t=\frac{b_1-4.0}{\operatorname{se}\left(b_1\right)} \sim t_{(N-2=214-2=212)}$ if the null hypothesis is true.
+Using Statistical Table 2 and the $1 \%$ level of significance, the rejection region is values of the test statistic less than or equal to -2.326 . The calculated value of the $t$-statistic is $t=\frac{-4.88-4}{3.29}=-2.70$, which falls in the rejection region, so we reject the null hypothesis and accept the alternative, that in the rural area the expected wage for an individual with zero years of education is less than $\$ 4$ an hour. 
+
+
+\newpage
+# Question 3.27 
+
+```{=Latex}
+\begin{greybox}
+  Is the relationship between experience and wages constant over one’s lifetime? We will investigate this question using a quadratic model. The data file cps5\_small contains 1200 observations on hourly wage rates, experience, and other variables from the March 2013 Current Population Survey (CPS). [Note: the data file cps5 contains more observations and variables.]
+\end{greybox}
+```
+
+## Question 3.27 Part A 
+
+```{=Latex}
+\begin{greybox}
+  Create the variable EXPER30 = EXPER - 30. Describe this variable. When is it positive, negative or zero?
+\end{greybox}
+```
+
+This variable is negative for $E X P E R<30$, it is zero when $E X P E R=\underline{0}$, and is positive for EXPER $>30$.
+
+```{r Q327A}
+
+data(cps5_small)
+df <- cps5_small |> 
+  mutate(
+    exper30 = exper - 30,
+    exper30_sq = (exper - 30)**2
+  )
+
+```
+
+## Question 3.27 Part B
+
+```{=Latex}
+\begin{greybox}
+  Estimate by least squares the quadratic model $\text{WAGE}=\gamma_1+\gamma_2(\text{EXPER30})^2+\varepsilon$. Test the null hypothesis that $\gamma_2=0$ against the alternative $\gamma_2 \neq 0$ at the $1 \%$ level of significance. Is there a statistically significant quadratic relationship between expected $W A G E$ and $E X P E R 30$ ?
+\end{greybox}
+```
+
+
+The null hypothesis is $H_0: \gamma_2=0$ against $H_1: \gamma_2 \neq 0$. This is a two-tail test with $t=\hat{\gamma}_2 / \mathrm{se}\left(\hat{\gamma}_2\right) \sim t_{(1198)}$ if the null hypothesis is true. For the $1 \%$ level of significance the test critical values are $t_{(0.995,1198)}=2.5799$ and $t_{(0.005,1198)}=-2.5799$. The calculated value is $t=$ -5.813 , which falls in the rejection region. We reject the null hypothesis that there is no relationship between $W A G E$ and $E X P E R 30^2$ and conclude that there is a statistically significant quadratic relationship.
+
+
+```{r Q327B}
+
+# Estimate model, take summary 
+qm <- lm(wage ~ exper30_sq, data = df)
+qm_summary <- summary(qm)
+
+# Make it pretty 
+modelsummary(
+  models = list("Quadratic Model" = qm),
+  gof_map = c("nobs", "r.squared"),
+  output = "kableExtra",
+  coef_rename = c("(Intercept)" = "Intercept",
+                  "exper30_sq" = "EXPER30²")
+)
+
+```
+
+## Question 3.27 Part C 
+
+```{=Latex}
+\begin{greybox}
+   Create a plot of the fitted value $\widehat{W A G E}=\hat{\gamma}_1+\hat{\gamma}_2(E X P E R 30)^2$, on the $y$-axis, versus $E X P E R 30$ on the $x$-axis. Up to the value $E X P E R 30=0$ is the slope of the plot constant, or is it increasing, or decreasing? Up to the value $E X P E R 30=0$ is the function increasing at an increasing rate or increasing at a decreasing rate?
+\end{greybox}
+```
+
+Up to 30 years of experience the fitted wage equation is increasing but at a decreasing rate. After 30 years the fitted equation is decreasing at an increasing rate. For 30 years of experience the slope of the fitted relationship is zero.
+
+```{r Q327C}
+
+gamma1_hat <- qm_summary$coefficients[1,1]
+gamma2_hat <- qm_summary$coefficients[2,1]
+
+df <- df |> 
+  mutate(wage_hat = gamma1_hat + gamma2_hat*(exper30_sq))
+
+ggplot(df, aes(x = exper30, y = wage_hat)) + 
+  geom_point() + 
+  theme_bw(base_size = 18) + 
+  labs(x = "Wage", y = "Experience (Centered at 30 YO)")
+  
+```
+
+## Question 3.27 Part D 
+
+```{=Latex}
+\begin{greybox}
+   If $y=a+b x^2$ then $d y / d x=2 b x$. Using this result, calculate the estimated slope of the fitted function $\widehat{W A G E}=\hat{\gamma}_1+\hat{\gamma}_2(E X P E R 30)^2$, when $E X P E R=0$, when $E X P E R=10$, and when $E X P E R=20$
+\end{greybox}
+```
+
+The slope of the estimated function is
+
+$$
+2 \hat{\gamma}_2(E X P E R 30)=2(-0.01045) E X P E R 30=-0.0209 E X P E R 30
+$$
+
+When $E X P E R=0$ the value of $E X P E R 30=-30$, and the calculated slope is 0.6267 . When $E X P E R=10$ the value of $E X P E R 30=-20$, and the calculated slope is 0.4178 . When $E X P E R=20$ the value of $E X P E R 30=-10$, and the calculated slope is 0.2089 . At each point the slope is positive, but decreasing as $E X P E R$ increases.
+
+
+```{r Q327D}
+
+# Calculate slopes at different points
+slope_exper_0 <-  2 * gamma2_hat * (-30)
+slope_exper_10 <- 2 * gamma2_hat * (-20)
+slope_exper_20 <- 2 * gamma2_hat * (-10)
+
+# Display the slopes
+slope_exper_0
+slope_exper_10
+slope_exper_20
+```
+
+## Question 3.27 Part E 
+
+```{=Latex}
+\begin{greybox}
+  Calculate the $t$-statistic for the null hypothesis that the slope of the function is zero, $H_0: 2 \gamma_2$ $E X P E R 30=0$, when $E X P E R=0$, when $E X P E R=10$, and when $E X P E R=20$.
+\end{greybox}
+```
+
+The $t=2 \hat{\gamma}_2 \operatorname{EXPER30} / \mathrm{se}\left(2 \hat{\gamma}_2 E X P E R 30\right) \sim t_{(1198)}$ if the null hypothesis is true. In each case the calculated $t=-5.81297$.
+
+# Review  
+
+## Interval Estimation vs. Point Estimation 
+
+We estimate things using points and intervals all the time. For example, you might tell your friend you'll arrive to a restaurant at 8:00 PM (a point estimate). However, we cannot always be so certain. If there's traffic you might tell them you'll arrive between 8:00 and 8:15 (an interval estimate). Interval estimates are less specific than point estimates but allow use to communicate how precise our estimates are. If you told you're friend you'll arrive between 8:00 and 12:00 they might think "they don't know what they're plans are."
+
+## Hypothesis Testing Derivation 
+
+So if S6 holds from chapter 2 we know what 
+
+\begin{align*}
+  b_2 \sim N\left(\beta_2, \frac{\sigma^2}{\sum\left(x_i-\bar{x}\right)^2}\right) \\ 
+  \implies Z=\frac{b 2-\beta_2}{\sqrt{\sigma^2 / \sum\left(x_i-\bar{x}\right)^2}} \sim N(0,1)
+\end{align*}
+
+Recall that 
+
+\begin{align*}
+  P(-1.96 \leq Z \leq 1.96)=0.95 \\
+  P\left(-1.96 \leq \frac{b 2-\beta_2}{\sqrt{\sigma^2 / \sum\left(x_i-\bar{x}\right)^2}} \leq 1.96\right)=0.95 \\ 
+  P\left(b_2-1.96 \sqrt{\sigma^2 / \sum\left(x_i-\bar{x}\right)^2} \leq \beta_2 \leq b_2+1.96 \sqrt{\sigma^2 / \sum\left(x_i-\bar{x}\right)^2}\right)=0.95 
+\end{align*}
+
+The two end-points $b_2 \pm 1.96 \sqrt{\sigma^2 / \sum\left(x_i-\bar{x}\right)^2}$ provide an interval estimator.
+In repeated sampling $95 \%$ of the intervals constructed this way will contain the true value of the parameter $\beta_2$.
+
+## The T-Statistic
+
+Replacing $\sigma^2$ with $\hat{\sigma}^2$ creates a random variable $t$ :
+
+$$
+t=\frac{b_2-\beta_2}{\sqrt{\sigma^2 / \sum\left(x_i-\bar{x}\right)^2}}=\frac{b_2-\beta_2}{\sqrt{\operatorname{\hat{var}}\left(b_2\right)}}=\frac{b_2-\beta_2}{\operatorname{se}\left(b_2\right)} \sim t_{(N-2)}
+$$
+
+
+The ratio $t=b_2-\beta_2 / s e\left(b_2\right)$ has a $t$-distribution with $(N-2)$ degrees of freedom, which we denote as:
+
+$$
+\boldsymbol{t} \sim \boldsymbol{t}_{(N-2)}
+$$
+
+In general we can say, if assumptions SR1-SR6 hold in the simple linear regression model, then
+
+$$
+t=\frac{b_k-\beta_k}{\operatorname{se}\left(b_k\right)} \sim t_{(N-2)} \text { for } k=1,2
+$$
+
+- The $t$-distribution is a bell shaped curve centered at zero
+- It looks like the standard normal distribution, except it is more spread out, with a larger variance and thicker tails
+- The shape of the $t$-distribution is controlled by a single parameter called the degrees of freedom, often abbreviated as $d f$
+
