@@ -23,6 +23,9 @@ author_profile: true
 * [Download .Rmd code](https://raw.githubusercontent.com/franciscodiazvaldes/franciscodiazvaldes.github.io/master/files/UCLA/Econ103/Week_2/week2_code.Rmd)
 
 
+#### Week 3 (OLS Functional form and hypotheis testing)
+* [Notes](/files/UCLA/Econ103/Week_3/Week_3_103.pdf)
+* [Download .Rmd code](https://raw.githubusercontent.com/franciscodiazvaldes/franciscodiazvaldes.github.io/master/files/UCLA/Econ103/Week_3/Week_3_code.Rmd)
 
 
 
