@@ -32,7 +32,8 @@ author_profile: true
 * [Notes](/files/UCLA/Econ103/Week_4/Week_4_103.pdf)
 
 
-
+#### Week 5 (Midterm Practice Problems)
+* [Notes](/files/UCLA/Econ103/Week_5/Week_5_103.pdf)
 
 
 
