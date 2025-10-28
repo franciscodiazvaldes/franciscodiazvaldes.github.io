@@ -28,6 +28,8 @@ author_profile: true
 * [Download .Rmd code](https://raw.githubusercontent.com/franciscodiazvaldes/franciscodiazvaldes.github.io/master/files/UCLA/Econ103/Week_3/Week_3_code.Rmd)
   (Knit as HTML)
 
+#### Week 4 (Confidence Interval and Hypothesis Testing)
+* [Notes](/files/UCLA/Econ103/Week_4/Week_4_103.pdf)
 
 
 
