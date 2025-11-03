@@ -36,8 +36,8 @@ author_profile: true
 * [Notes](/files/UCLA/Econ103/Week_5/Week_5_103.pdf)
 
 #### Week 6 (Midterm Practice Problems Solved)
-* [Notes](/files/UCLA/Econ103/Week_5/Week_5_103_solved.pdf)
-* [Notes](/files/UCLA/Econ103/Week_5/Extra_Practice_Problems_solved.pdf)
+* [Week 5 Solved](/files/UCLA/Econ103/Week_5/Week_5_103_solved.pdf)
+* [Extra Practice Problems Solved](/files/UCLA/Econ103/Week_5/Extra_Practice_Problems_solved.pdf)
 
 <!--
 ## Lecturer
