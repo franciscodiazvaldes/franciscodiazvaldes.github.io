@@ -39,7 +39,7 @@ author_profile: true
 * [Week 5 Solved](/files/UCLA/Econ103/Week_6/Week_5_103_solved.pdf)
 * [Extra Practice Problems Solved](/files/UCLA/Econ103/Week_6/Extra_Practice_Problems_solved.pdf)
 
-#### Week 7 (Midterm Review)
+#### Week 7 (Midterm Review - Typo: Correct answer por Q9 is E)
 * [Midterm Review (with solutions)](/files/UCLA/Econ103/Week_7/solutions_slides.pdf)
 
 
