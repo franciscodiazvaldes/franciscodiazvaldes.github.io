@@ -42,8 +42,8 @@ author_profile: true
 #### Week 7 (Midterm Review - Typo: Correct answer for Q9 is E)
 * [Midterm Review (with solutions)](/files/UCLA/Econ103/Week_7/solutions_slides.pdf)
 
-#### Week 8 (R2 and Multiple Regression Framework)
-* To be written ...
+#### Week 8 (R^2 and Multiple Regression Framework)
+* [Notes](/files/UCLA/Econ103/Week_8/Week_8_ECON_103.pdf)
 
 
 #### Week 9 (F-test and Final Practice Problems)
