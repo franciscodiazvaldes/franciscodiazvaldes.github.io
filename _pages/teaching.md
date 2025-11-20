@@ -43,7 +43,7 @@ author_profile: true
 * [Midterm Review (with solutions)](/files/UCLA/Econ103/Week_7/solutions_slides.pdf)
 
 #### Week 8 (R^2 and Multiple Regression Framework)
-* [Notes](/files/UCLA/Econ103/Week_8/Week_8_ECON_103.pdf)
+* [Notes](/files/UCLA/Econ103/Week_8/Week_8_Econ_103.pdf)
 
 
 #### Week 9 (F-test and Final Practice Problems)
