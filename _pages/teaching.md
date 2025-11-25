@@ -47,6 +47,7 @@ author_profile: true
 
 
 #### Week 9 (F-test and Final Practice Problems)
+* [Notes](/files/UCLA/Econ103/Week_9/Week_9.pdf)
 
 
 #### Week 10 (Final Practice Problems)
