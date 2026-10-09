@@ -13,6 +13,6 @@ I am a PhD candidate in Economics at the [University of California, Los Angeles]
 
 Previously, I served as a Pre-Doctoral Research Fellow at the [School of Business and Economics, Universidad de los Andes, Chile](https://www.uandes.cl/sbe/){:target="_blank" rel="noopener"}, where I worked with Professors [Alvaro García-Marín](https://sites.google.com/site/afgarciama/home){:target="_blank" rel="noopener"} and [Juan Pablo Xandri](https://jxandri.com/home). 
 
-I’m interested in Macroeconomics with Heterogeneous Agents, Macro-Finance, and Computational Economics.
+I’m interested in Macroeconomics with Heterogeneous Agents, Macro-Finance, Asset Pricing, and Computational Economics.
 
 My CV is available [here](files/CV/CV.pdf){:target="_blank" rel="noopener"}, and you can contact me at [fdiazvaldes[at]ucla[dot]edu](mailto:fdiazvaldes@g.ucla.edu)
